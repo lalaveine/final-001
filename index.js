@@ -16,5 +16,4 @@ require("http")
 
     res.end("evgeniimatveev");
   })
-  // .listen(process.env.PORT);
-  .listen(3000);
+  .listen(process.env.PORT);
