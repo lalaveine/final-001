@@ -6,7 +6,7 @@
   },
   "main": "index.js",
   "repository": "https://github.com/lalaveine/final-001",
-  "author": "evgeniimatveev",
+  "author": "itmo287659",
   "license": "MIT",
   "scripts": {
     "start": "node index.js"
