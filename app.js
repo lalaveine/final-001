@@ -45,7 +45,7 @@ export default (
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
     .get("/test/", (req, res) => {
-      console.log("test" + req.url.split("%2F"));
+      console.log("test" + req.url.split("%2F")[-1]);
     });
 
   app.post("/insert/", async (req, res) => {
