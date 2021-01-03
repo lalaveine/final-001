@@ -3,18 +3,19 @@ require("http")
     const NAME = "itmo287659";
     const CORS = {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,POST,DELETE",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
       "Access-Control-Allow-Headers":
-        "Content-Type, Access-Control-Allow-Headers",
+        "X-Author,Content-Type,Accept,Access-Control-Allow-Headers",
     };
     res.writeHead(200, CORS);
     const HEADERS = {
       "X-Author": NAME,
       "Content-Type": "text/plain; charset=UTF-8",
     };
+    const FUNCT = "function task(x) {\n\treturn x.toUpperCase();\n}";
     res.writeHead(200, HEADERS);
     if (req.url === "/login") return res.end(NAME);
-    // if (req.url === "/node") return res.end(process.versions.node);
+    if (req.url === "/sample") return res.end(FUNCT);
     // if (req.url === "/package.json")
     //   return require("fs").createReadStream("./package.json").pipe(res);
     // if (req.url === "/day") return res.end(`${new Date().getDate()}`);
