@@ -49,14 +49,17 @@ export default (
         id: 1,
         date: "2021-01-03T20:27:31",
         date_gmt: "2021-01-03T20:27:31",
-        guid: { rendered: "http://matveev-final001.herokuapp.com/?p=1" },
+        guid: {
+          rendered: "http://matveev-final001.herokuapp.com/wordpress/?p=1",
+        },
         modified: "2021-01-03T20:27:31",
         modified_gmt: "2021-01-03T20:27:31",
         slug: "itmo287659",
         status: "publish",
         type: "post",
-        link: "http://matveev-final001.herokuapp.com/2021/01/03/itmo287659/",
-        title: { rendered: "itmo287659" },
+        link:
+          "http://matveev-final001.herokuapp.com/wordpress/2021/01/03/itmo287659/",
+        title: "itmo287659",
         content: { rendered: "", protected: false },
         excerpt: { rendered: "", protected: false },
         author: 1,
@@ -73,52 +76,53 @@ export default (
           self: [
             {
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/posts/1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/posts/1",
             },
           ],
           collection: [
             {
-              href: "http://matveev-final001.herokuapp.com/wp-json/wp/v2/posts",
+              href:
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/posts",
             },
           ],
           about: [
             {
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/types/post",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/types/post",
             },
           ],
           author: [
             {
               embeddable: true,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/users/1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/users/1",
             },
           ],
           replies: [
             {
               embeddable: true,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/comments?post=1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/comments?post=1",
             },
           ],
           "version-history": [
             {
               count: 1,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/posts/1/revisions",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/posts/1/revisions",
             },
           ],
           "predecessor-version": [
             {
               id: 6,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/posts/1/revisions/6",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/posts/1/revisions/6",
             },
           ],
           "wp:attachment": [
             {
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/media?parent=1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/media?parent=1",
             },
           ],
           "wp:term": [
@@ -126,13 +130,13 @@ export default (
               taxonomy: "category",
               embeddable: true,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/categories?post=1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/categories?post=1",
             },
             {
               taxonomy: "post_tag",
               embeddable: true,
               href:
-                "http://matveev-final001.herokuapp.com/wp-json/wp/v2/tags?post=1",
+                "http://matveev-final001.herokuapp.com/wordpress/wp-json/wp/v2/tags?post=1",
             },
           ],
           curies: [
