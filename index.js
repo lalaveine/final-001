@@ -17,10 +17,10 @@ require("http")
       return res.end(NAME);
     }
     if (req.url === "/sample") {
-      // const HEADERS = {
-      //   "Content-Type": "text/plain",
-      // };
-      // res.writeHead(200, { ...CORS, ...HEADERS });
+      const HEADERS = {
+        "Content-Type": "text/plain",
+      };
+      res.writeHead(200, { ...CORS, ...HEADERS });
       return res.end(FUNCT);
     }
     // if (req.url === "/package.json")
