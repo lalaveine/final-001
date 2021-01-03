@@ -22,7 +22,7 @@ function myFunc(express, bodyParser, createReadStream, crypto, http) {
       res.send(hash.digest("hex"));
     })
 
-    .get("/login/", (req, res) => res.send("yuriiitymchenko"))
+    .get("/login/", (req, res) => res.send("itmo287659"))
     .get("/code/", (req, res) => {
       let filename = import.meta.url.substring(7);
       createReadStream(filename).pipe(res);
@@ -43,7 +43,7 @@ function myFunc(express, bodyParser, createReadStream, crypto, http) {
     });
   });
   app.all("*", (req, res) => {
-    res.send("yuriiitymchenko");
+    res.send("itmo287659");
   });
   return app;
 }
