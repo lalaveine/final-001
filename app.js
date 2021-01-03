@@ -44,7 +44,7 @@ export default (
       res.set({ "Content-Type": "text/plain; charset=utf-8" });
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
-    .get("/test/", (req, res) => console.log(req.body));
+    .get("/test/", (req, res) => console.log(req.body.URL));
 
   app.post("/insert/", async (req, res) => {
     const { URL, login, password } = req.body;
