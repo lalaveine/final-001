@@ -1,0 +1,5 @@
+function task(x) {
+  const testPromise = new Promise((res, rej) => x < 18 ? res('Yes') : rej('no'));
+  testPromise.catch(rej => console.log(rej));
+  return testPromise;
+}

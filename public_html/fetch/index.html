@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <input type="text" id="inp">
+    <button id="bt">Click me</button>
+
+    <script>
+        const btn = document.getElementById("bt");
+        btn.addEventListener('click', btnClick);
+
+        function btnClick() {
+            const inpValue = document.getElementById("inp").value;
+
+            fetch(inpValue)
+                .then((response) => {
+                    return response.text();
+                })
+                .then((data) => {
+                    document.getElementById("inp").value = data;
+                })
+                .catch(reject => {
+                    console.log(reject);
+                });
+        }
+    </script>
+</body>
+
+</html>

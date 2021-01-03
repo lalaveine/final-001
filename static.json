@@ -1,7 +1,23 @@
 {
+  "https_only": true,
   "headers": {
-    "/*" : {
+    "/*": {
       "X-Author": "itmo287659",
+      "Access-Control-Allow-Origin": "*"
+    },
+    "/login/": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8"
+    },
+    "/sample/": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8"
+    },
+    "/promise/": {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "text/plain; charset=UTF-8"
+    },
+    "/fetch/": {
       "Access-Control-Allow-Origin": "*"
     }
   }
