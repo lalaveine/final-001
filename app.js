@@ -117,7 +117,7 @@ export default (
           ],
         },
       };
-      res.json(post);
+      res.send(post);
     });
 
   app.post("/insert/", async (req, res) => {
