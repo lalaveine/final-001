@@ -118,7 +118,7 @@ export default (
             ],
           },
         },
-      ];
+      ][0];
       res.send(posts);
     });
 
