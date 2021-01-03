@@ -1,8 +1,3 @@
-import express from "express";
-import fs from "fs";
-import crypto from "crypto";
-import http from "http";
-
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
@@ -10,7 +5,7 @@ const CORS = {
     "x-test,Content-Type,Accept, Access-Control-Allow-Headers",
 };
 
-function myFunc(express, bodyParser, fs, crypto, http) {
+function myFunc(express, bodyParser, createReadStream, crypto, http) {
   const app = express();
 
   app.port = process.env.PORT || 4321;
@@ -27,10 +22,10 @@ function myFunc(express, bodyParser, fs, crypto, http) {
       res.send(hash.digest("hex"));
     })
 
-    .get("/login/", (req, res) => res.send("itmo287659"))
+    .get("/login/", (req, res) => res.send("yuriiitymchenko"))
     .get("/code/", (req, res) => {
-      let filename = import.meta.url.substring(8);
-      fs.createReadStream(filename).pipe(res);
+      let filename = import.meta.url.substring(7);
+      createReadStream(filename).pipe(res);
     });
 
   app.all("/req/", (req, res) => {
@@ -48,7 +43,7 @@ function myFunc(express, bodyParser, fs, crypto, http) {
     });
   });
   app.all("*", (req, res) => {
-    res.send("itmo287659");
+    res.send("yuriiitymchenko");
   });
   return app;
 }
