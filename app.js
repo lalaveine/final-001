@@ -44,17 +44,82 @@ export default (
       res.set({ "Content-Type": "text/plain; charset=utf-8" });
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
-    .get("/test/", async (req, res) => {
-      const browser = await puppeteer.launch({
-        headless: true,
-        args: ["--no-sandbox"],
-      });
-      const page = await browser.newPage();
-      await page.goto(req.query.URL);
-      await page.waitForSelector("#bt");
-      await page.click("#bt");
-      const got = await page.$eval("#inp", (el) => el.value);
-      res.end(got);
+    .get("/wordpress/wp-json/wp/v2/posts/1/", async (req, res) => {
+      const posts = [
+        {
+          id: 1,
+          date: "2021-01-03T20:00:53",
+          date_gmt: "2021-01-03T20:00:53",
+          guid: { rendered: "http://192.168.1.44/?p=1" },
+          modified: "2021-01-03T20:00:53",
+          modified_gmt: "2021-01-03T20:00:53",
+          slug: "itmo287659",
+          status: "publish",
+          type: "post",
+          link: "http://192.168.1.44/2021/01/03/itmo287659/",
+          title: { rendered: "itmo287659" },
+          content: { rendered: "", protected: false },
+          excerpt: { rendered: "", protected: false },
+          author: 1,
+          featured_media: 0,
+          comment_status: "open",
+          ping_status: "open",
+          sticky: false,
+          template: "",
+          format: "standard",
+          meta: [],
+          categories: [1],
+          tags: [],
+          _links: {
+            self: [{ href: "http://192.168.1.44/wp-json/wp/v2/posts/1" }],
+            collection: [{ href: "http://192.168.1.44/wp-json/wp/v2/posts" }],
+            about: [{ href: "http://192.168.1.44/wp-json/wp/v2/types/post" }],
+            author: [
+              {
+                embeddable: true,
+                href: "http://192.168.1.44/wp-json/wp/v2/users/1",
+              },
+            ],
+            replies: [
+              {
+                embeddable: true,
+                href: "http://192.168.1.44/wp-json/wp/v2/comments?post=1",
+              },
+            ],
+            "version-history": [
+              {
+                count: 1,
+                href: "http://192.168.1.44/wp-json/wp/v2/posts/1/revisions",
+              },
+            ],
+            "predecessor-version": [
+              {
+                id: 6,
+                href: "http://192.168.1.44/wp-json/wp/v2/posts/1/revisions/6",
+              },
+            ],
+            "wp:attachment": [
+              { href: "http://192.168.1.44/wp-json/wp/v2/media?parent=1" },
+            ],
+            "wp:term": [
+              {
+                taxonomy: "category",
+                embeddable: true,
+                href: "http://192.168.1.44/wp-json/wp/v2/categories?post=1",
+              },
+              {
+                taxonomy: "post_tag",
+                embeddable: true,
+                href: "http://192.168.1.44/wp-json/wp/v2/tags?post=1",
+              },
+            ],
+            curies: [
+              { name: "wp", href: "https://api.w.org/{rel}", templated: true },
+            ],
+          },
+        },
+      ];
+      res.end(posts);
     });
 
   app.post("/insert/", async (req, res) => {
