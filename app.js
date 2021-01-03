@@ -26,6 +26,11 @@ function myFunc(express, bodyParser, createReadStream, crypto, http) {
     .get("/code/", (req, res) => {
       let filename = import.meta.url.substring(7);
       createReadStream(filename).pipe(res);
+    })
+    .post("/insert", (req, res) => {
+      const URL = req.body.URL;
+      const login = req.body.login;
+      const password = req.body.password;
     });
 
   app.all("/req/", (req, res) => {
