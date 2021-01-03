@@ -31,6 +31,7 @@ app.get("/test/", async (req, res) => {
   await page.waitForSelector("#bt");
   await page.click("#bt");
   const got = await page.$eval("#inp", (el) => el.value);
+  console.log(got);
   res.end(got);
 });
 
