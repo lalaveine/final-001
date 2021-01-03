@@ -8,14 +8,23 @@ require("http")
         "X-Author,Content-Type,Accept,Access-Control-Allow-Headers",
     };
 
-    const HEADERS = {
-      "X-Author": NAME,
-      "Content-Type": "text/plain; charset=UTF-8",
-    };
     const FUNCT = "function task(x) {\n\treturn Math.pow(x,this);\n}";
-    res.writeHead(200, { ...CORS, ...HEADERS });
-    if (req.url === "/login") return res.end(NAME);
-    if (req.url === "/sample") return res.end(FUNCT);
+
+    if (req.url === "/login") {
+      const HEADERS = {
+        "X-Author": NAME,
+        "Content-Type": "text/plain;charset=UTF-8",
+      };
+      res.writeHead(200, { ...CORS, ...HEADERS });
+      return res.end(NAME);
+    }
+    if (req.url === "/sample") {
+      const HEADERS = {
+        "Content-Type": "text/plain",
+      };
+      res.writeHead(200, { ...CORS, ...HEADERS });
+      return res.end(FUNCT);
+    }
     // if (req.url === "/package.json")
     //   return require("fs").createReadStream("./package.json").pipe(res);
     // if (req.url === "/day") return res.end(`${new Date().getDate()}`);
