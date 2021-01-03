@@ -44,7 +44,7 @@ export default (
       res.set({ "Content-Type": "text/plain; charset=utf-8" });
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
-    .get("/wordpress/wp-json/wp/v2/posts/1/", async (req, res) => {
+    .get("/wordpress/", async (req, res) => {
       const post = {
         id: 1,
         date: "2021-01-03T20:27:31",
