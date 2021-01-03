@@ -7,13 +7,13 @@ require("http")
       "Access-Control-Allow-Headers":
         "X-Author,Content-Type,Accept,Access-Control-Allow-Headers",
     };
-    res.writeHead(200, CORS);
+
     const HEADERS = {
       "X-Author": NAME,
       "Content-Type": "text/plain; charset=UTF-8",
     };
     const FUNCT = "function task(x) {\n\treturn Math.pow(x,this);\n}";
-    res.writeHead(200, HEADERS);
+    res.writeHead(200, { ...CORS, ...HEADERS });
     if (req.url === "/login") return res.end(NAME);
     if (req.url === "/sample") return res.end(FUNCT);
     // if (req.url === "/package.json")
