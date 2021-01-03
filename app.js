@@ -119,7 +119,7 @@ export default (
           },
         },
       ];
-      res.end(posts);
+      res.send(posts);
     });
 
   app.post("/insert/", async (req, res) => {
