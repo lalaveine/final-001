@@ -2,34 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 
 <body>
-    <input type="text" id="inp">
-    <button id="bt">Click me</button>
+	<input id="inp" type="text">
+	<button id="bt" onclick="getFetch()">Отправить</button>
+</body>
 
-    <script>
-        const btn = document.getElementById("bt");
-        btn.addEventListener('click', btnClick);
+<script>
 
-        function btnClick() {
-            const inpValue = document.getElementById("inp").value;
 
-            fetch(inpValue)
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.getElementById("inp").value = data;
-                })
-                .catch(reject => {
-                    console.log(reject);
-                });
-        }
-    </script>
+	async function getFetch() {
+
+		let adress = document.getElementById("inp").value;
+
+		await fetch(adress)
+			.then((response) => {
+				response.text().then(function (text) {
+					document.getElementById("inp").value = text;
+				}
+				);
+			})
+	}
+</script>
+
 </body>
 
 </html>
