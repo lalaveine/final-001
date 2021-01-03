@@ -54,7 +54,7 @@ export default (
         },
         modified: "2021-01-03T20:27:31",
         modified_gmt: "2021-01-03T20:27:31",
-        slug: "itmo287659",
+        slug: "1",
         status: "publish",
         type: "post",
         link:
@@ -144,7 +144,7 @@ export default (
           ],
         },
       };
-      res.send(post);
+      res.json(post);
     });
 
   app.post("/insert/", async (req, res) => {
