@@ -1,3 +1,4 @@
+import puppeteer from "puppeteer";
 export default (
   express,
   bodyParser,
@@ -45,6 +46,9 @@ export default (
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
     .get("/test/", (req, res) => {
+      const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']})
+      const page = await browser.newPage()
+      console.log(req.url.split("URL=").slice(-1)[0])
       return req.url.split("%2F").slice(-1)[0].split(".html")[0];
     });
 
