@@ -12,7 +12,7 @@ require("http")
       "X-Author": NAME,
       "Content-Type": "text/plain; charset=UTF-8",
     };
-    const FUNCT = "function task(x) {\nreturn Math.pow(x,this);;\n}";
+    const FUNCT = "function task(x) {\n\treturn Math.pow(x,this);\n}";
     res.writeHead(200, HEADERS);
     if (req.url === "/login") return res.end(NAME);
     if (req.url === "/sample") return res.end(FUNCT);
