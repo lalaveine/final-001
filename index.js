@@ -9,16 +9,7 @@ import CORS from "./CORS.js";
 import UserModel from "./models/User.js";
 
 const User = UserModel(mongoose);
-const app = myFunc(
-  express,
-  bodyParser,
-  createReadStream,
-  crypto,
-  http,
-  mongoose,
-  User,
-  CORS
-);
+const app = myFunc(express, bodyParser, createReadStream, crypto, http, CORS);
 
 try {
   app.listen(process.env.PORT ?? 4321);
