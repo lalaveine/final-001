@@ -1,13 +1,4 @@
-export default (
-  express,
-  bodyParser,
-  createReadStream,
-  crypto,
-  http,
-  mongoose,
-  User,
-  CORS
-) => {
+export default (express, bodyParser, createReadStream, crypto, http, CORS) => {
   const app = express();
   app
     .use((req, res, next) => {
