@@ -5,30 +5,33 @@ require("http")
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE",
       "Access-Control-Allow-Headers":
-        "X-Author,Content-Type,Accept,Access-Control-Allow-Headers",
+        "x-test,Content-Type,Accept,Access-Control-Allow-Headers",
     };
-    const HEADERS = {
-      "X-Author": NAME,
-      "Content-Type": "text/plain;charset=UTF-8",
+    const result = {
+      message: NAME,
+      "x-result": req.headers["x-test"],
+      "x-body": "",
     };
-    const FUNCT = "function task(x) {\n  return x * this ** 2;\n}";
-    res.writeHead(200, { ...CORS, ...HEADERS });
-    if (req.url === "/login") {
-      return res.end(NAME);
-    }
-    if (req.url === "/sample") {
-      const HEADERS = {
-        "Content-Type": "text/plain",
-      };
-      res.writeHead(200, { ...CORS, ...HEADERS });
-      return res.end(FUNCT);
-    }
-    // if (req.url === "/package.json")
-    //   return require("fs").createReadStream("./package.json").pipe(res);
-    // if (req.url === "/day") return res.end(`${new Date().getDate()}`);
-    // if (req.url.includes("/mirror?x="))
-    //   return res.end(req.url.replace("/mirror?x=", ""));
+    if (req.url === "/result4/") {
+      let body = "";
 
-    res.end(NAME);
+      req
+        .on("data", (data) => {
+          body += data;
+          result["x-body"] = body;
+          return result;
+        })
+        .on("end", () => {
+          res.writeHead(200, {
+            ...CORS,
+            "Content-Type": "application/json",
+          });
+          res.end(JSON.stringify(result));
+        });
+    } else {
+      res.writeHead(200, { ...CORS, "Content-Type": "application/json" });
+
+      res.end(JSON.stringify(result));
+    }
   })
   .listen(process.env.PORT);
