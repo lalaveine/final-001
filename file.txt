@@ -1,0 +1,1 @@
+<html>lang="en"<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="author" content="itmo287659"/><title>Lesson7</title></head><body><h1>openedu</h1><h2>0.4433</h2><h3>0.1199</h3></body></html>

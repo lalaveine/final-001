@@ -1,11 +1,17 @@
 export default (express, bodyParser, createReadStream, crypto, http, CORS) => {
   const app = express();
+  app.set("view engine", "pug");
+  app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    })
+  );
+  app.use(bodyParser.json());
   app
     .use((req, res, next) => {
       res.set(CORS);
       next();
     })
-    .use(bodyParser.urlencoded({ extended: true }))
     .get("/users/:url", async (req, res) => {
       const URL = req.body.URL;
       try {
@@ -154,14 +160,12 @@ export default (express, bodyParser, createReadStream, crypto, http, CORS) => {
     }
   });
 
-  app
-    .post("/render", (req, res) => {
-      const data = req.body;
-      const url = req.params.addr;
-      console.log("data", data);
-      res.render("index", { data });
-    })
-    .set("view engine", "pug");
+  app.post("/render", (req, res) => {
+    const data = req.body;
+    const url = req.params.addr;
+    console.log("data", data);
+    res.render("index", { random2: data.random2, random3: data.random3 });
+  });
 
   app.all("/req/", (req, res) => {
     let url = req.method === "POST" ? req.body.addr : req.query.addr;
@@ -184,8 +188,7 @@ export default (express, bodyParser, createReadStream, crypto, http, CORS) => {
     })
     .use((error, req, res, next) =>
       res.status(500).set(CORS).send(`Error : ${error}`)
-    )
-    .set("view engine", "pug");
+    );
 
   return app;
 };
