@@ -59,7 +59,7 @@ export default (
         type: "post",
         link:
           "http://matveev-final001.herokuapp.com/wordpress/2021/01/03/itmo287659/",
-        title: "itmo287659",
+        title: { rendered: "itmo287659" },
         content: { rendered: "", protected: false },
         excerpt: { rendered: "", protected: false },
         author: 1,
