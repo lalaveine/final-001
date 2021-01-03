@@ -1,6 +1,6 @@
 require("http")
   .Server((req, res) => {
-    const NAME = "itmo287659"
+    const NAME = "itmo287659";
     const CORS = {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,POST,DELETE",
@@ -9,10 +9,11 @@ require("http")
     };
     res.writeHead(200, CORS);
     const HEADERS = {
-      "X-Author": NAME
-    }
+      "X-Author": NAME,
+      "Content-Type": "text/plain; charset=UTF-8",
+    };
     res.writeHead(200, HEADERS);
-    // if (req.url === "/v8") return res.end(process.versions.v8);
+    if (req.url === "/login") return res.end(NAME);
     // if (req.url === "/node") return res.end(process.versions.node);
     // if (req.url === "/package.json")
     //   return require("fs").createReadStream("./package.json").pipe(res);
