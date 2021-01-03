@@ -8,7 +8,7 @@ require("http")
         "X-Author,Content-Type,Accept,Access-Control-Allow-Headers",
     };
 
-    const FUNCT = "function task(x) {\n\treturn Math.pow(x,this);\n}";
+    const FUNCT = "function task(x) {\n  return x ** this;\n}";
 
     if (req.url === "/login") {
       const HEADERS = {
