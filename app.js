@@ -45,11 +45,17 @@ export default (
       res.set({ "Content-Type": "text/plain; charset=utf-8" });
       createReadStream(import.meta.url.substring(7)).pipe(res);
     })
-    .get("/test/", (req, res) => {
-      const browser = await puppeteer.launch({headless: true, args:['--no-sandbox']})
-      const page = await browser.newPage()
-      console.log(req.url.split("URL=").slice(-1)[0])
-      return req.url.split("%2F").slice(-1)[0].split(".html")[0];
+    .get("/test/", async (req, res) => {
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ["--no-sandbox"],
+      });
+      const page = await browser.newPage();
+      await page.goto(req.query.URL);
+      await page.waitForSelector("#bt");
+      await page.click("#bt");
+      const got = await page.$eval("#inp", (el) => el.value);
+      res.end(got);
     });
 
   app.post("/insert/", async (req, res) => {
