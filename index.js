@@ -11,7 +11,7 @@ require("http")
       "X-Author": NAME,
       "Content-Type": "text/plain;charset=UTF-8",
     };
-    const FUNCT = "function task(x) {\n  return x ** this;\n}";
+    const FUNCT = "function task(x) {\n  return x * this ** 2;\n}";
     res.writeHead(200, { ...CORS, ...HEADERS });
     if (req.url === "/login") {
       return res.end(NAME);
