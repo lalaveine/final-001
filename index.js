@@ -11,6 +11,10 @@ import UserModel from "./models/User.js";
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.set(CORS);
+  next();
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/login/", (req, res) => {
